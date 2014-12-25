@@ -1,0 +1,25 @@
+.add-form {
+    display: block;
+    margin-top: 50px;
+    width: 50%;
+    margin: 0 auto;
+
+    input, label {
+        float: left;
+        width: 100%;
+        margin-bottom: 5px;
+        min-height: 20px;
+    }
+
+    label {
+        margin-top: 10px;
+    }
+
+    input[type="submit"] {
+        float: none;
+        min-height: 25px;
+        max-width: 100%;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+}

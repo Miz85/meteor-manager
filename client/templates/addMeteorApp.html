@@ -1,0 +1,26 @@
+<template name="addMeteorApp">
+	<a href="{{pathFor 'home'}}">Go back to the list</a>
+
+	{{#if _id}} 
+		<div>Status: {{status}}</div>
+	{{/if}}
+
+	<form class="add-form" method="POST">
+		<input type="hidden" name="_id" value="{{#if _id}}{{_id}}{{/if}}">
+
+		<label for="name">Name</label>
+		<input type="text" name="name" value="{{#if _id}}{{name}}{{/if}}">
+		
+		<label for="app-path">Path</label>
+		<input  name="app-path" type="text" value="{{#if _id}}{{path}}{{/if}}">
+
+		<label for="port">Port</label>
+		<input  name="port" type="text" value="{{#if _id}}{{port}}{{/if}}">
+
+		<input type="submit" value="{{#if _id}}Edit{{else}}Add{{/if}}">
+
+		<div style="clear:both"></div>
+	</form>
+
+
+</template>
