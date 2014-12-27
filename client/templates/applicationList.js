@@ -10,6 +10,15 @@
 // If we're on the client 
 if(Meteor.isClient){
 
+    // Initializing the errors key fir this template
+    var ERRORS_KEY = "applicationListErrors";
+
+    // On template creation
+    Template.applicationList.created = function(){
+        // Initialize the errors object
+        Session.set(ERRORS_KEY, {});
+    }
+
 	/**********************************\
 	               Helpers
 	\**********************************/
@@ -33,7 +42,15 @@ if(Meteor.isClient){
           } else {
             return false;
           }
-        }
+        },
+
+        /**
+         *  Error Handling 
+         */
+         errorMessages: function() {
+            return _.values(Session.get(ERRORS_KEY));
+         }
+
     });
 
 
@@ -47,20 +64,28 @@ if(Meteor.isClient){
           meteorApps.remove({_id: this._id});
         },
 
-        'click #start-meteor-app': function() {
+        'click #start-meteor-app': function(template) {
+            var errors = {};
+       
             Meteor.call('startMeteorApp', this._id, this.path, this.port, function(err, data){
-               if (err) throw err;
+                if (err) {
+                    errors.start = err.reason;
+                    Session.set(ERRORS_KEY, errors);
+                }
             });
+           
         }, 
 
         'click #stop-meteor-app': function() {
-            Meteor.call('stopMeteorApp', this._id, this.pid, function(err, data){
-              if (err) throw err;
-            });
-        },
+            var errors = {};
 
-        'click #edit-meteor-app': function() {
-            
+            Meteor.call('stopMeteorApp', this._id, this.pid, function(err, data){
+                if (err) {
+                    errors.stop = err.reason;
+                    Session.set(ERRORS_KEY, errors);
+                }
+            });
+
         }
     });
 

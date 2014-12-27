@@ -15,7 +15,7 @@ if(Meteor.isClient){
 	\**********************************/
 
   Template.addMeteorApp.helpers({
-    
+
         /**
          * Helper for Blaze 
          * Returns true if a the app status is "Started"
@@ -27,9 +27,9 @@ if(Meteor.isClient){
           } else {
             return false;
           }
-        }
+        } 
   });
-  
+
 
     /**********************************\
                    Events

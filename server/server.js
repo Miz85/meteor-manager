@@ -1,3 +1,11 @@
+/**
+ *  server.js
+ *  
+ *  Main Server script, includes the required libs and
+ *  containsthe methods we need to call from the client
+ *
+ */
+
 if (Meteor.isServer) {
   var childProcess = Npm.require('child_process');
   var fs = Npm.require('fs');
@@ -7,8 +15,7 @@ if (Meteor.isServer) {
     startMeteorApp: function (_id, path, port) {
         // Check if the path is a valid meteor app path
         if(!fs.existsSync(nodePath.join(path, '.meteor'))){
-          console.log("not a meteor app folder");
-          return;
+          throw new Meteor.Error(500, METEOR_APP_ERRORS.NO_METEOR_FOLDER, "");
         }
 
         var child = childProcess.spawn("meteor", 

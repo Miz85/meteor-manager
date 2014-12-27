@@ -1,7 +1,14 @@
 <template name="applicationList">
-	{{#if successMessage}}
-	<div>Yay ! : {{successMessage}}</div>
-	{{/if}}
+
+	{{#if errorMessages}}
+		<ul>
+			{{#each errorMessages}}
+			<li>
+				{{this}}
+			</li>
+			{{/each}}
+		</ul>
+	{{/if}}	
 
 	<a href="{{pathFor 'meteorapp.add'}}">Add app</a>
 

@@ -14,8 +14,9 @@ I just Started this project, so right now everything is very rudimentary and sim
 
 Next steps :
 ------------
-* Clean the file structure
-* Edit your projects
 * Include remote projects management through SSH
 * Let you create meteor apps from the dashboard
+* Facelift
 * Let you Monitor your running meteor applications
+* Add Windows support
+* Add Folder browsing
