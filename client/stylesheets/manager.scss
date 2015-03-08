@@ -1,3 +1,21 @@
+
+@import "_colors.scss";
+
+@import "_settings.scss";
+
+@import ".meteor/local/build/programs/server/assets/packages/matthew_foundation5-sass/_foundation.scss";
+
+@import "_buttons.scss";
+
+body {
+    font-family: "Open Sans" sans-serif;
+    font-size: 14px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Open Sans" sans-serif;
+}
+
 .add-form {
     display: block;
     margin-top: 50px;
@@ -22,4 +40,85 @@
         margin: 0 auto;
         margin-top: 20px;
     }
+}
+
+.login-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 25%;
+    height: 200px;
+    margin-top: -180px;
+    margin-left: -12.5%;
+
+    h1 {
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 35px;
+    }
+
+    p {
+        font-size: 12px;
+        a {
+            color: $manager-green;
+            text-decoration: underline;
+        }
+    }
+
+    button {
+        margin-top:20px;
+        margin-bottom: 5px;
+    }
+}
+
+
+.navbar-left {
+    position: absolute;
+    z-index:101;
+    width:220px;
+    top:0;
+    left: 0;
+    bottom:0;
+    background-color: $manager-medium-blue;
+
+    .menu-header{
+        width:100%;
+        padding: 20px;
+        background-color: $manager-dark-blue;
+        color:$manager-light-blue;
+
+        & > a {
+            color: $manager-light-grey;
+            text-decoration: underline;
+        }
+    }
+
+    .menu {
+        list-style: none;
+        font-size: 14px;
+        margin: 0px;
+        li {
+            padding: 15px 25px;
+            & > a {
+                color: $manager-light-grey;
+            }
+            &:hover {
+                background-color: $manager-medium-dark-blue;
+                cursor: pointer;
+
+            }
+            &.selected {
+                background-color: $manager-medium-dark-blue;
+                border-left: 4px solid $manager-green;
+            }
+        }
+    }
+
+
+}
+
+.main-container {
+    position: absolute;
+    width:100%;  
+    padding-left:230px;
 }

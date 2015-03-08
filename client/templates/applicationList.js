@@ -10,6 +10,8 @@
 // If we're on the client 
 if(Meteor.isClient){
 
+    Meteor.subscribe("applicationList");
+
     // Initializing the errors key fir this template
     var ERRORS_KEY = "applicationListErrors";
 

@@ -1,0 +1,32 @@
+<template name="login">
+	{{#if signin}}
+	<form method="post" name="loginForm" id="loginForm" class="login-form">
+		<h1>Welcome to <br> <strong>Meteor Manager</strong></h1>
+
+		<input type="email" name="email" placeholder="Email">
+		<input type="password" name="password" placeholder="Password">
+
+		<button type="submit" class="manager-button">
+			{{#if loggingIn }}
+				Logging in ...
+			{{else}}
+				Login
+			{{/if}}
+		</button>
+
+		<p>Don't have an account yet ? <a id="signup-link" href="#">Sign Up</a></p>
+	</form>
+	{{else}}
+	<form method="post" name="signup-form" id="signup-form" class="login-form">
+		<h1>Welcome to <br> <strong>Meteor Manager</strong></h1>
+
+		<input type="text" name="username" placeholder="Username">
+		<input type="email" name="email" placeholder="Email">
+		<input type="password" name="password" placeholder="Password">
+
+		<button type="submit" class="manager-button">Sign Up</button>
+
+		<p>Already have an account ? <a id="login-link" href="#">Login</a></p>
+	</form>
+	{{/if}}
+</template>

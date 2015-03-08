@@ -9,3 +9,6 @@ insecure
 iron:router
 fourseven:scss
 mike:mocha
+accounts-password
+accounts-ui
+matthew:foundation5-sass

@@ -1,4 +1,30 @@
 <template name="mainLayout">
-	<h1>Welcome to Meteor Manager!</h1>
-	{{>yield}}
+
+	{{#if currentUser}}
+		<nav class="navbar-left">
+			<div class="menu-collapse">
+				<div class="menu-header">
+					<a data-dropdown="drop" aria-expanded="false">{{currentUserEmail}}</a>
+					<ul id="drop" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+					  <li><a id="logout" href="#">Logout</a></li>
+					</ul>					
+				</div>
+				<ul class="menu">
+					<li id="home" class="{{#if selected 'home'}}selected{{/if}}">
+						<a href="{{pathFor 'home'}}">Home</a>
+					</li>
+					<li id="servers" class="{{#if selected 'servers'}}selected{{/if}}">
+						<a href="{{pathFor 'meteorapp.add'}}">My servers</a>
+					</li>
+					<li id="settings" class="{{#if selected 'settings'}}selected{{/if}}"><a href="#">Settings</a></li>
+				</ul>
+			</div>
+			
+		</nav>
+
+		<div class="main-container">
+			{{>yield}}
+		</div>
+	{{/if}}
+	{{initFoundation}}
 </template>

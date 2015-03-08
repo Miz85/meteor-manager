@@ -1,0 +1,10 @@
+.manager-button {
+
+	@include button-base;
+ 	@include button-size;
+  	@include button-style($manager-green);
+
+	color: $white;
+	padding: 10px 20px;
+	min-width:100%;
+}

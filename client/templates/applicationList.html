@@ -1,5 +1,5 @@
 <template name="applicationList">
-
+	<h1>Meteor applications</h1>
 	{{#if errorMessages}}
 		<ul>
 			{{#each errorMessages}}
@@ -14,19 +14,24 @@
 
 	 <table class="apps">
 		<thead>
-			<th>PID</th>
 			<th>Name</th>
-			<th>Path</th>
+			<th>Server</th>
 			<th>Port</th>
+			<th>Path</th>
+			<th>PID</th>
 			<th>Status</th>
+			<th></th>
+			<th></th>
+			<th></th>
 		</thead>
 		<tbody>	
 			{{#each apps}}
 				<tr>
-					<td>{{pid}}</td>
-					<td>{{name}}</td>
-					<td>{{path}}</td>
+					<td><strong>{{name}}</strong></td>
+					<td>{{server}}</td>
 					<td>{{port}}</td>
+					<td>{{path}}</td>
+					<td>{{pid}}</td>
 					<td>{{status}}</td>
 					<td>
 						{{#if isStarted status}}
